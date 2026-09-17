@@ -685,6 +685,143 @@
     letter-spacing:0.03em;
   }
 
+  .gallery-btn{
+    position:relative;
+    align-self:flex-start;
+    margin-top:12px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.04em;
+    background:var(--navy-deep);
+    color:var(--chalk);
+    padding:8px 14px;
+    border:none;
+    border-radius:2px;
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    transition:background 0.15s;
+  }
+
+  .gallery-btn:hover{
+    background:var(--rust);
+  }
+
+  /* ---------- LIGHTBOX ---------- */
+
+  .lb-overlay{
+    position:fixed;
+    inset:0;
+    z-index:250;
+    background:rgba(8,18,24,0.94);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    opacity:0;
+    visibility:hidden;
+    transition:opacity 0.25s ease;
+  }
+
+  .lb-overlay.is-visible{
+    opacity:1;
+    visibility:visible;
+  }
+
+  .lb-img-wrap{
+    max-width:min(900px, 90vw);
+    max-height:80vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .lb-img-wrap img{
+    max-width:100%;
+    max-height:80vh;
+    object-fit:contain;
+    border-radius:2px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.5);
+  }
+
+  .lb-close{
+    position:absolute;
+    top:18px;
+    right:22px;
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    border:1px solid rgba(244,242,234,0.3);
+    background:transparent;
+    color:var(--chalk);
+    font-size:16px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .lb-close:hover{
+    background:rgba(244,242,234,0.1);
+  }
+
+  .lb-nav{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    border:1px solid rgba(244,242,234,0.3);
+    background:rgba(20,43,54,0.5);
+    color:var(--chalk);
+    font-size:18px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .lb-nav:hover{
+    background:var(--rust);
+  }
+
+  .lb-prev{
+    left:16px;
+  }
+
+  .lb-next{
+    right:16px;
+  }
+
+  .lb-counter{
+    position:absolute;
+    bottom:18px;
+    left:50%;
+    transform:translateX(-50%);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    color:rgba(244,242,234,0.75);
+  }
+
+  @media (max-width:640px){
+    .lb-nav{
+      width:38px;
+      height:38px;
+      font-size:16px;
+    }
+
+    .lb-prev{
+      left:6px;
+    }
+
+    .lb-next{
+      right:6px;
+    }
+  }
+
   /* ---------- WHY TURFING ---------- */
 
   .why{
@@ -1681,6 +1818,8 @@
             </span>
           </div>
 
+          <button class="gallery-btn" onclick="openLightbox('midim')">📷 View Photos (6)</button>
+
         </div>
 
 
@@ -1705,6 +1844,8 @@
               Khotang, Nepal
             </span>
           </div>
+
+          <button class="gallery-btn" onclick="openLightbox('lidin')">📷 View Photos (16)</button>
 
         </div>
 
@@ -1911,6 +2052,104 @@
   </div>
 
 </footer>
+
+
+<!-- PROJECT PHOTO LIGHTBOX -->
+
+<div class="lb-overlay" id="lbOverlay">
+  <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">‹</button>
+  <div class="lb-img-wrap">
+    <img id="lbImage" src="" alt="Project photo">
+  </div>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next">›</button>
+  <div class="lb-counter" id="lbCounter"></div>
+</div>
+
+<script>
+  (function(){
+    var GALLERIES = {
+      midim: [
+        "site-images/middle-midim/photo1.jpg",
+        "site-images/middle-midim/photo2.jpg",
+        "site-images/middle-midim/photo3.jpg",
+        "site-images/middle-midim/photo4.jpg",
+        "site-images/middle-midim/photo5.jpg",
+        "site-images/middle-midim/photo6.jpg"
+      ],
+      lidin: [
+        "site-images/lidin-khola/photo1.jpg",
+        "site-images/lidin-khola/photo2.jpg",
+        "site-images/lidin-khola/photo3.jpg",
+        "site-images/lidin-khola/photo4.jpg",
+        "site-images/lidin-khola/photo5.jpg",
+        "site-images/lidin-khola/photo6.jpg",
+        "site-images/lidin-khola/photo7.jpg",
+        "site-images/lidin-khola/photo8.jpg",
+        "site-images/lidin-khola/photo9.jpg",
+        "site-images/lidin-khola/photo10.jpg",
+        "site-images/lidin-khola/photo11.jpg",
+        "site-images/lidin-khola/photo12.jpg",
+        "site-images/lidin-khola/photo13.jpg",
+        "site-images/lidin-khola/photo14.jpg",
+        "site-images/lidin-khola/photo15.jpg",
+        "site-images/lidin-khola/photo16.jpg"
+      ]
+    };
+
+    var overlay = document.getElementById('lbOverlay');
+    var imgEl = document.getElementById('lbImage');
+    var counterEl = document.getElementById('lbCounter');
+    var closeBtn = document.getElementById('lbClose');
+    var prevBtn = document.getElementById('lbPrev');
+    var nextBtn = document.getElementById('lbNext');
+
+    var currentGallery = [];
+    var currentIndex = 0;
+
+    window.openLightbox = function(key){
+      currentGallery = GALLERIES[key] || [];
+      currentIndex = 0;
+      render();
+      overlay.classList.add('is-visible');
+    };
+
+    function render(){
+      if(!currentGallery.length) return;
+      imgEl.src = currentGallery[currentIndex];
+      counterEl.textContent = (currentIndex + 1) + ' / ' + currentGallery.length;
+    }
+
+    function closeLightbox(){
+      overlay.classList.remove('is-visible');
+    }
+
+    function next(){
+      currentIndex = (currentIndex + 1) % currentGallery.length;
+      render();
+    }
+
+    function prev(){
+      currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+      render();
+    }
+
+    closeBtn.addEventListener('click', closeLightbox);
+    nextBtn.addEventListener('click', next);
+    prevBtn.addEventListener('click', prev);
+
+    overlay.addEventListener('click', function(e){
+      if(e.target === overlay){ closeLightbox(); }
+    });
+
+    document.addEventListener('keydown', function(e){
+      if(!overlay.classList.contains('is-visible')) return;
+      if(e.key === 'Escape'){ closeLightbox(); }
+      if(e.key === 'ArrowRight'){ next(); }
+      if(e.key === 'ArrowLeft'){ prev(); }
+    });
+  })();
+</script>
 
 
 <!-- FLOATING WHATSAPP BUTTON -->
