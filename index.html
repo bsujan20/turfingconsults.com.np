@@ -1,8 +1,7 @@
 
 <!-- saved from url=(0031)https://turfingconsults.com.np/ -->
-<html lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 
 
 
@@ -177,6 +176,59 @@
     opacity:1;
   }
 
+  .nav-links a:focus-visible,
+  .nav-cta:focus-visible,
+  .btn-primary:focus-visible,
+  .btn-ghost:focus-visible,
+  .gallery-btn:focus-visible,
+  .social-icon:focus-visible,
+  .wa-float:focus-visible,
+  .lb-close:focus-visible,
+  .lb-nav:focus-visible,
+  .vp-close:focus-visible,
+  .vp-dismiss:focus-visible,
+  .menu-toggle:focus-visible{
+    outline:2px solid var(--rust);
+    outline-offset:3px;
+    border-radius:2px;
+  }
+
+  .menu-toggle{
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:5px;
+    width:44px;
+    height:44px;
+    background:none;
+    border:1px solid rgba(20,43,54,0.25);
+    border-radius:4px;
+    cursor:pointer;
+    padding:0;
+    flex-shrink:0;
+  }
+
+  .menu-toggle span{
+    display:block;
+    width:20px;
+    height:2px;
+    background:var(--navy);
+    transition:transform 0.2s, opacity 0.2s;
+  }
+
+  .menu-toggle[aria-expanded="true"] span:nth-child(1){
+    transform:translateY(7px) rotate(45deg);
+  }
+
+  .menu-toggle[aria-expanded="true"] span:nth-child(2){
+    opacity:0;
+  }
+
+  .menu-toggle[aria-expanded="true"] span:nth-child(3){
+    transform:translateY(-7px) rotate(-45deg);
+  }
+
   .nav-cta{
     font-family:'IBM Plex Mono', monospace;
     font-size:12px;
@@ -195,8 +247,39 @@
   }
 
   @media (max-width:900px){
+    .menu-toggle{
+      display:flex;
+    }
+
+    .nav-links{
+      position:fixed;
+      top:81px;
+      left:0;
+      right:0;
+      flex-direction:column;
+      align-items:stretch;
+      gap:0;
+      background:var(--chalk);
+      border-bottom:1px solid var(--paper-line);
+      max-height:0;
+      overflow:hidden;
+      transition:max-height 0.25s ease;
+    }
+
+    .nav-links.is-open{
+      max-height:420px;
+    }
+
     .nav-links a:not(.nav-cta){
-      display:none;
+      display:block;
+      padding:16px 32px;
+      opacity:1;
+      border-bottom:1px solid var(--paper-line);
+    }
+
+    .nav-links .nav-cta{
+      margin:16px 32px;
+      text-align:center;
     }
 
     .logo-text{
@@ -446,11 +529,11 @@
 
   .services-strip .tag{
     font-family:'IBM Plex Mono', monospace;
-    font-size:12px;
+    font-size:13px;
     color:var(--navy);
     background:var(--paper);
     border:1px solid var(--paper-line);
-    padding:7px 14px;
+    padding:10px 16px;
     border-radius:2px;
   }
 
@@ -680,7 +763,7 @@
     display:block;
     margin-top:7px;
     font-family:'IBM Plex Mono', monospace;
-    font-size:10.5px;
+    font-size:12px;
     color:var(--concrete);
     letter-spacing:0.03em;
   }
@@ -690,11 +773,12 @@
     align-self:flex-start;
     margin-top:12px;
     font-family:'IBM Plex Mono', monospace;
-    font-size:10.5px;
+    font-size:12.5px;
     letter-spacing:0.04em;
     background:var(--navy-deep);
     color:var(--chalk);
-    padding:8px 14px;
+    padding:11px 16px;
+    min-height:44px;
     border:none;
     border-radius:2px;
     cursor:pointer;
@@ -1318,7 +1402,7 @@
   }
 </style>
 <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ENHBPNMCMQ"></script>
+<script async="" src="./Turfing Technical Consults Pvt. Ltd. — Hydropower &amp; Civil Engineering, Kathmandu_files/js"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -1343,7 +1427,11 @@
 
     </a>
 
-    <div class="nav-links">
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="nav-links" id="navLinks">
       <a href="https://turfingconsults.com.np/#home">Home</a>
       <a href="https://turfingconsults.com.np/#chairman">Chairman</a>
       <a href="https://turfingconsults.com.np/#about">About</a>
@@ -1555,7 +1643,7 @@
 
         <div class="chairman-message">
 
-          <span class="chairman-quote-mark">&ldquo;</span>
+          <span class="chairman-quote-mark">“</span>
 
           <p>
             At Turfing Technical Consults, our work begins where the terrain
@@ -1818,7 +1906,7 @@
             </span>
           </div>
 
-          <button class="gallery-btn" onclick="openLightbox('midim')">📷 View Photos (6)</button>
+          <button class="gallery-btn" onclick="openLightbox(&#39;midim&#39;)">📷 View Photos (6)</button>
 
         </div>
 
@@ -1845,7 +1933,7 @@
             </span>
           </div>
 
-          <button class="gallery-btn" onclick="openLightbox('lidin')">📷 View Photos (16)</button>
+          <button class="gallery-btn" onclick="openLightbox(&#39;lidin&#39;)">📷 View Photos (16)</button>
 
         </div>
 
@@ -1872,7 +1960,7 @@
             </span>
           </div>
 
-          <button class="gallery-btn" onclick="openLightbox('budhiganga')">📷 View Photos (7)</button>
+          <button class="gallery-btn" onclick="openLightbox(&#39;budhiganga&#39;)">📷 View Photos (7)</button>
 
         </div>
 
@@ -1973,7 +2061,7 @@
 
 
       <div class="cta-buttons">
-        <a href="mailto:turfingconsults@gmail.com?subject=Project%20Inquiry&body=Hi%20Turfing%20Team%2C%0A%0AI%27d%20like%20to%20discuss%20a%20project.%0A%0AName%3A%0APhone%3A%0AProject%20details%3A" class="btn-primary">
+        <a href="mailto:turfingconsults@gmail.com?subject=Project%20Inquiry&amp;body=Hi%20Turfing%20Team%2C%0A%0AI%27d%20like%20to%20discuss%20a%20project.%0A%0AName%3A%0APhone%3A%0AProject%20details%3A" class="btn-primary">
           ✉ Email Us
         </a>
 
@@ -2062,7 +2150,7 @@
   <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
   <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">‹</button>
   <div class="lb-img-wrap">
-    <img id="lbImage" src="" alt="Project photo">
+    <img id="lbImage" src="https://turfingconsults.com.np/" alt="Project photo">
   </div>
   <button class="lb-nav lb-next" id="lbNext" aria-label="Next">›</button>
   <div class="lb-counter" id="lbCounter"></div>
@@ -2173,7 +2261,7 @@
 <!-- VISHWAKARMA PUJA POPUP -->
 
 <div class="vp-overlay" id="vpOverlay">
-  <div class="vp-card">
+  <div class="vp-card" role="dialog" aria-modal="true" aria-labelledby="vpHeading">
 
     <button class="vp-close" id="vpClose" aria-label="Close">✕</button>
 
@@ -2185,7 +2273,7 @@
 
     <div class="vp-eyebrow">Turfing Technical Consults</div>
 
-    <h3>Happy Vishwakarma Puja <span class="vp-year">2083</span></h3>
+    <h3 id="vpHeading">Happy Vishwakarma Puja <span class="vp-year">2083</span></h3>
 
     <p>
       On this day of the divine engineer and architect, we honour the tools,
@@ -2205,22 +2293,29 @@
     var dismissBtn = document.getElementById('vpDismiss');
     var storageKey = 'vpDismissed2083';
 
+    var lastFocused = null;
+
     function closePopup(){
       overlay.classList.remove('is-visible');
       try{ localStorage.setItem(storageKey, '1'); }catch(e){}
+      if(lastFocused){ lastFocused.focus(); }
+    }
+
+    function openPopup(){
+      lastFocused = document.activeElement;
+      overlay.classList.add('is-visible');
+      closeBtn.focus();
     }
 
     try{
       if(!localStorage.getItem(storageKey)){
         window.addEventListener('load', function(){
-          setTimeout(function(){
-            overlay.classList.add('is-visible');
-          }, 400);
+          setTimeout(openPopup, 400);
         });
       }
     }catch(e){
       window.addEventListener('load', function(){
-        overlay.classList.add('is-visible');
+        openPopup();
       });
     }
 
@@ -2229,8 +2324,63 @@
     overlay.addEventListener('click', function(e){
       if(e.target === overlay){ closePopup(); }
     });
+
+    document.addEventListener('keydown', function(e){
+      if(!overlay.classList.contains('is-visible')) return;
+      if(e.key === 'Escape'){ closePopup(); }
+      if(e.key === 'Tab'){
+        var focusables = [closeBtn, dismissBtn];
+        var first = focusables[0];
+        var last = focusables[focusables.length - 1];
+        if(e.shiftKey && document.activeElement === first){
+          e.preventDefault();
+          last.focus();
+        } else if(!e.shiftKey && document.activeElement === last){
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    });
   })();
 </script>
 
-</body>
-</html>
+<script>
+  (function(){
+    var toggle = document.getElementById('menuToggle');
+    var links = document.getElementById('navLinks');
+    if(!toggle || !links) return;
+
+    function closeMenu(){
+      links.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open menu');
+    }
+
+    function openMenu(){
+      links.classList.add('is-open');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Close menu');
+    }
+
+    toggle.addEventListener('click', function(){
+      var isOpen = links.classList.contains('is-open');
+      if(isOpen){ closeMenu(); } else { openMenu(); }
+    });
+
+    links.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape' && links.classList.contains('is-open')){
+        closeMenu();
+        toggle.focus();
+      }
+    });
+  })();
+</script>
+
+<script type="module" src="./Turfing Technical Consults Pvt. Ltd. — Hydropower &amp; Civil Engineering, Kathmandu_files/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;63f9fe4ea25d4a438edd70caa897eae9&quot;,&quot;r&quot;:1,&quot;spa&quot;:2}" crossorigin="anonymous"></script>
+
+
+</body></html>
