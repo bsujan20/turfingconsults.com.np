@@ -10,7 +10,7 @@
 
 <title>Turfing Technical Consults Pvt. Ltd. — Hydropower &amp; Civil Engineering, Kathmandu</title>
 
-<meta name="description" content="Turfing Technical Consults Private Limited — hydropower feasibility, detailed design, and civil engineering consultancy for Nepal&#39;s terrain.">
+<meta name="description" content="Turfing Technical Consults Private Limited — hydropower feasibility, detailed design, and civil engineering consultancy for Nepal's terrain.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com/">
 <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
@@ -1037,7 +1037,7 @@
     color:var(--chalk);
   }
 
-  /* ---------- VISHWAKARMA PUJA POPUP ---------- */
+  /* ---------- DASHAIN POPUP ---------- */
 
   .vp-overlay{
     position:fixed;
@@ -1061,15 +1061,16 @@
 
   .vp-card{
     position:relative;
-    max-width:420px;
+    max-width:540px;
     width:100%;
+    max-height:90vh;
+    overflow-y:auto;
     background:var(--navy-deep);
     color:var(--chalk);
     border:1px solid rgba(244,242,234,0.14);
     border-radius:4px;
     padding:40px 32px 32px;
     text-align:center;
-    overflow:hidden;
     transform:translateY(16px) scale(0.97);
     transition:transform 0.35s ease;
     box-shadow:0 24px 60px rgba(0,0,0,0.35);
@@ -1082,7 +1083,8 @@
   .vp-card::before{
     content:'';
     position:absolute;
-    inset:0;
+    top:0;left:0;right:0;
+    height:100%;
     background-image:
       linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
@@ -1168,8 +1170,27 @@
     color:rgba(244,242,234,0.72);
     font-size:14.5px;
     line-height:1.6;
-    max-width:32ch;
-    margin:14px auto 26px;
+    max-width:none;
+    margin:14px auto 0;
+    text-align:left;
+  }
+
+  .vp-card p.vp-lead{
+    text-align:center;
+    color:var(--chalk);
+    font-weight:600;
+  }
+
+  .vp-card p.vp-signoff{
+    text-align:center;
+    margin:20px auto 26px;
+    color:var(--chalk);
+  }
+
+  .vp-card p.vp-signoff strong{
+    display:block;
+    color:var(--rust-soft);
+    font-weight:600;
   }
 
   .vp-dismiss{
@@ -1906,7 +1927,7 @@
             </span>
           </div>
 
-          <button class="gallery-btn" onclick="openLightbox(&#39;midim&#39;)">📷 View Photos (6)</button>
+          <button class="gallery-btn" onclick="openLightbox('midim')">📷 View Photos (6)</button>
 
         </div>
 
@@ -1933,7 +1954,7 @@
             </span>
           </div>
 
-          <button class="gallery-btn" onclick="openLightbox(&#39;lidin&#39;)">📷 View Photos (16)</button>
+          <button class="gallery-btn" onclick="openLightbox('lidin')">📷 View Photos (16)</button>
 
         </div>
 
@@ -1960,7 +1981,7 @@
             </span>
           </div>
 
-          <button class="gallery-btn" onclick="openLightbox(&#39;budhiganga&#39;)">📷 View Photos (7)</button>
+          <button class="gallery-btn" onclick="openLightbox('budhiganga')">📷 View Photos (7)</button>
 
         </div>
 
@@ -2150,7 +2171,7 @@
   <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
   <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">‹</button>
   <div class="lb-img-wrap">
-    <img id="lbImage" src="https://turfingconsults.com.np/" alt="Project photo">
+    <img id="lbImage" src="./Turfing Technical Consults Pvt. Ltd. — Hydropower &amp; Civil Engineering, Kathmandu_files/Turfing Technical Consults Pvt. Ltd. — Hydropower &amp; Civil Engineering, Kathmandu.html" alt="Project photo">
   </div>
   <button class="lb-nav lb-next" id="lbNext" aria-label="Next">›</button>
   <div class="lb-counter" id="lbCounter"></div>
@@ -2258,7 +2279,7 @@
 </a>
 
 
-<!-- VISHWAKARMA PUJA POPUP -->
+<!-- DASHAIN POPUP -->
 
 <div class="vp-overlay" id="vpOverlay">
   <div class="vp-card" role="dialog" aria-modal="true" aria-labelledby="vpHeading">
@@ -2271,14 +2292,35 @@
       <circle cx="32" cy="26" r="3.4" fill="#C1602E"></circle>
     </svg>
 
-    <div class="vp-eyebrow">Turfing Technical Consults</div>
+    <div class="vp-eyebrow">Warm Dashain Wishes from Turfing Technical Consults Pvt. Ltd.</div>
 
-    <h3 id="vpHeading">Happy Vishwakarma Puja <span class="vp-year">2083</span></h3>
+    <h3 id="vpHeading">Happy Dashain <span class="vp-year">2083!</span> 🌸</h3>
 
     <p>
-      On this day of the divine engineer and architect, we honour the tools,
-      craft, and discipline behind every structure we build. Wishing you
-      safety, precision, and progress in the year ahead.
+      On the auspicious occasion of Dashain, Turfing Technical Consults Pvt. Ltd.
+      extends its heartfelt wishes to all our valued clients, partners, employees,
+      and their families.
+    </p>
+
+    <p>
+      May this joyous festival bring happiness, peace, prosperity, and success to
+      everyone. May the blessings of Goddess Durga inspire new beginnings,
+      strengthen relationships, and bring continued growth and achievement in the
+      days ahead.
+    </p>
+
+    <p>
+      Thank you for your continued trust and support. May this Dashain fill your
+      lives with positivity, good health, and countless reasons to celebrate.
+    </p>
+
+    <p class="vp-lead">
+      Wishing you all a Happy, Peaceful, and Prosperous Dashain 2083!
+    </p>
+
+    <p class="vp-signoff">
+      Warm regards,
+      <strong>Turfing Technical Consults Pvt. Ltd.</strong>
     </p>
 
     <button class="vp-dismiss" id="vpDismiss">Thank You</button>
@@ -2291,7 +2333,7 @@
     var overlay = document.getElementById('vpOverlay');
     var closeBtn = document.getElementById('vpClose');
     var dismissBtn = document.getElementById('vpDismiss');
-    var storageKey = 'vpDismissed2083';
+    var storageKey = 'dashainDismissed2083';
 
     var lastFocused = null;
 
@@ -2383,4 +2425,5 @@
 <script type="module" src="./Turfing Technical Consults Pvt. Ltd. — Hydropower &amp; Civil Engineering, Kathmandu_files/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;63f9fe4ea25d4a438edd70caa897eae9&quot;,&quot;r&quot;:1,&quot;spa&quot;:2}" crossorigin="anonymous"></script>
 
 
+<script type="module" src="./Turfing Technical Consults Pvt. Ltd. — Hydropower &amp; Civil Engineering, Kathmandu_files/v4bc70e2c01a94c73b74392e4234840661791215815920" integrity="sha512-L0ha0OXavK/8okipN9F8BtP84dg9DUhPERbBXzwI6dgTA55d2+yweo3pn5CSFYs45/r8md2+xvUPtTdvTNRfjA==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;63f9fe4ea25d4a438edd70caa897eae9&quot;,&quot;r&quot;:1,&quot;spa&quot;:2}" crossorigin="anonymous"></script>
 </body></html>
