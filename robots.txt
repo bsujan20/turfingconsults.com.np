@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /test.php
 
 Sitemap: https://turfingconsults.com.np/sitemap.xml
