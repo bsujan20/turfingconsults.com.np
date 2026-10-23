@@ -643,23 +643,24 @@
   .scheme{
     position:relative; overflow:hidden;
     background:
-      radial-gradient(1200px 500px at 70% 0%, rgba(47,159,174,.18), transparent 60%),
-      radial-gradient(900px 400px at 10% 100%, rgba(240,163,107,.10), transparent 60%),
-      linear-gradient(180deg, #07161d 0%, #0b2530 100%);
-    color:var(--text-on-dark);
+      radial-gradient(1200px 500px at 75% 0%, rgba(47,159,174,.12), transparent 60%),
+      radial-gradient(900px 400px at 5% 100%, rgba(240,163,107,.10), transparent 60%),
+      linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+    color:var(--text);
   }
-  .scheme .lede{ color:var(--text-on-dark-2); max-width:720px; margin:16px auto 0; }
+  .scheme .lede{ color:var(--text-2); max-width:720px; margin:16px auto 0; }
   .scheme-stage{
     position:relative; margin-top:56px;
     border-radius:var(--radius-lg);
-    background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
-    border:1px solid rgba(255,255,255,.08);
+    background:linear-gradient(180deg, #f7fbfc 0%, #ffffff 100%);
+    border:1px solid rgba(7,22,29,.06);
+    box-shadow:var(--shadow);
     overflow-x:auto; scrollbar-width:none;
   }
   .scheme-stage::-webkit-scrollbar{ display:none; }
   .scheme-svg{ width:100%; max-width:none; min-width:760px; height:auto; }
   .scheme-svg text{ font-family:var(--font); letter-spacing:0; }
-  .scheme-hint{ display:none; text-align:center; font-size:13px; color:var(--text-on-dark-2); margin-top:12px; }
+  .scheme-hint{ display:none; text-align:center; font-size:13px; color:var(--text-2); margin-top:12px; }
   @media (max-width:800px){ .scheme-hint{ display:block; } }
 
   /* waterway draws itself, then water flows */
@@ -678,13 +679,13 @@
   .node{ opacity:0; transform:translateY(10px); transform-box:fill-box; transform-origin:center;
          transition:opacity .6s var(--ease), transform .6s var(--ease); cursor:pointer; }
   .scheme.is-live .node{ opacity:1; transform:none; transition-delay:var(--d); }
-  .node .ring{ fill:none; stroke:#f0a36b; stroke-width:2; opacity:0; transform-box:fill-box; transform-origin:center; }
-  .node .dot{ fill:#07161d; stroke:#f0a36b; stroke-width:2.5; transition:fill .3s, r .3s; }
-  .node .num{ fill:#f0a36b; font-size:12px; font-weight:700; text-anchor:middle; dominant-baseline:central; transition:fill .3s; }
-  .node .lbl{ fill:#e8eef0; font-size:15px; font-weight:600; text-anchor:middle; transition:fill .3s; }
-  .node.is-active .dot{ fill:#f0a36b; }
-  .node.is-active .num{ fill:#07161d; }
-  .node.is-active .lbl{ fill:#ffd2ae; }
+  .node .ring{ fill:none; stroke:#e07b39; stroke-width:2; opacity:0; transform-box:fill-box; transform-origin:center; }
+  .node .dot{ fill:#ffffff; stroke:#e07b39; stroke-width:2.5; transition:fill .3s, r .3s; }
+  .node .num{ fill:#e07b39; font-size:12px; font-weight:700; text-anchor:middle; dominant-baseline:central; transition:fill .3s; }
+  .node .lbl{ fill:var(--text); font-size:15px; font-weight:600; text-anchor:middle; transition:fill .3s; }
+  .node.is-active .dot{ fill:#e07b39; }
+  .node.is-active .num{ fill:#ffffff; }
+  .node.is-active .lbl{ fill:#c25e1f; }
   .node.is-active .ring{ animation:ping 1.6s var(--ease) infinite; }
   @keyframes ping{ 0%{ opacity:.9; transform:scale(1); } 100%{ opacity:0; transform:scale(2.6); } }
 
@@ -706,15 +707,15 @@
   }
   .scheme-step{
     padding:18px 16px 20px; border-radius:var(--radius-md);
-    background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07);
+    background:var(--card); border:1px solid rgba(7,22,29,.06); box-shadow:var(--shadow);
     cursor:pointer; transition:background .35s var(--ease), border-color .35s var(--ease), transform .35s var(--ease);
   }
   .scheme-step .n{ display:inline-grid; place-items:center; width:26px; height:26px; border-radius:50%;
-                   font-size:12px; font-weight:700; color:#f0a36b; box-shadow:inset 0 0 0 1.5px #f0a36b; transition:all .35s; }
+                   font-size:12px; font-weight:700; color:#e07b39; box-shadow:inset 0 0 0 1.5px #e07b39; transition:all .35s; }
   .scheme-step h3{ font-size:16px; font-weight:600; margin-top:12px; letter-spacing:-0.01em; }
-  .scheme-step p{ font-size:13px; line-height:1.45; color:var(--text-on-dark-2); margin-top:6px; }
-  .scheme-step.is-active{ background:rgba(240,163,107,.12); border-color:rgba(240,163,107,.45); transform:translateY(-4px); }
-  .scheme-step.is-active .n{ background:#f0a36b; color:#07161d; }
+  .scheme-step p{ font-size:13px; line-height:1.45; color:var(--text-2); margin-top:6px; }
+  .scheme-step.is-active{ background:#fff5ee; border-color:rgba(224,123,57,.5); transform:translateY(-4px); }
+  .scheme-step.is-active .n{ background:#e07b39; color:#ffffff; }
   @media (max-width:1100px){
     .scheme-steps{
       grid-template-columns:none; grid-auto-flow:column; grid-auto-columns:minmax(210px, 60%);
@@ -819,7 +820,7 @@
   <section class="scheme" id="scheme" aria-labelledby="scheme-title">
     <div class="wrap-wide">
       <div class="center reveal">
-        <span class="eyebrow" style="color:#7ee0ea">Hydropower Scheme</span>
+        <span class="eyebrow">Hydropower Scheme</span>
         <h2 id="scheme-title" class="section-title">Typical run-of-river layout.</h2>
         <p class="lede">
           Water is diverted at the intake, cleaned of gravel and sediment, carried
@@ -834,53 +835,53 @@
           <desc id="schemeSvgDesc">Water flows from the intake through the gravel trap, desander, headrace and surge tank or forebay, then down the penstock to the powerhouse, where turbines generate electricity before the water returns to the river.</desc>
           <defs>
             <linearGradient id="gHill" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#17404a" stop-opacity=".9"/>
-              <stop offset="1" stop-color="#0a2128" stop-opacity=".2"/>
+              <stop offset="0" stop-color="#bfdccb" stop-opacity=".95"/>
+              <stop offset="1" stop-color="#e6f1ea" stop-opacity=".35"/>
             </linearGradient>
             <linearGradient id="gMtn" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#1c3943"/>
-              <stop offset="1" stop-color="#0b1c23"/>
+              <stop offset="0" stop-color="#c3d9df"/>
+              <stop offset="1" stop-color="#eaf3f5"/>
             </linearGradient>
             <linearGradient id="gWater" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0" stop-color="#7ee0ea"/>
-              <stop offset="1" stop-color="#2997ff"/>
+              <stop offset="0" stop-color="#2f9fae"/>
+              <stop offset="1" stop-color="#0071e3"/>
             </linearGradient>
             <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur stdDeviation="4" result="b"/>
+              <feGaussianBlur stdDeviation="3" result="b"/>
               <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
             </filter>
             <path id="wwPath" d="M80,160 L210,162 L340,164 L860,172 L900,172 L1080,296 L1104,296"/>
           </defs>
 
           <!-- mountains -->
-          <path d="M0,150 L90,70 L170,120 L280,40 L390,110 L480,62 L590,128 L700,52 L820,122 L930,70 L1040,140 L1130,96 L1200,130 L1200,380 L0,380 Z" fill="url(#gMtn)" opacity=".55"/>
-          <path d="M260,52 L280,40 L300,52 L290,50 L280,58 L270,50 Z M686,62 L700,52 L716,64 L704,61 L700,68 L694,61 Z" fill="#cfe7ec" opacity=".35"/>
+          <path d="M0,150 L90,70 L170,120 L280,40 L390,110 L480,62 L590,128 L700,52 L820,122 L930,70 L1040,140 L1130,96 L1200,130 L1200,380 L0,380 Z" fill="url(#gMtn)" opacity=".9"/>
+          <path d="M260,52 L280,40 L300,52 L290,50 L280,58 L270,50 Z M686,62 L700,52 L716,64 L704,61 L700,68 L694,61 Z" fill="#ffffff" opacity=".95"/>
 
           <!-- hillside between waterway and river -->
           <path d="M80,160 L210,162 L340,164 L860,172 L900,172 L1080,296 L1104,296 L1200,336 L950,282 L700,242 L400,210 L120,188 L0,180 L0,150 Z" fill="url(#gHill)"/>
 
           <!-- river -->
-          <path d="M0,180 L120,188 L400,210 L700,242 L950,282 L1200,336" fill="none" stroke="#1e6b78" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-          <path class="river-flow" d="M0,180 L120,188 L400,210 L700,242 L950,282 L1200,336" pathLength="100" fill="none" stroke="#7ee0ea" stroke-width="2.5" stroke-linecap="round" opacity=".7"/>
-          <text x="40" y="214" fill="#7ee0ea" opacity=".6" font-size="12" font-weight="600">RIVER</text>
+          <path d="M0,180 L120,188 L400,210 L700,242 L950,282 L1200,336" fill="none" stroke="#9fd6df" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+          <path class="river-flow" d="M0,180 L120,188 L400,210 L700,242 L950,282 L1200,336" pathLength="100" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" opacity=".95"/>
+          <text x="40" y="214" fill="#2f9fae" opacity=".9" font-size="12" font-weight="600">RIVER</text>
 
           <!-- waterway: base, draw-on, flow -->
-          <path d="M80,160 L210,162 L340,164 L860,172 L900,172 L1080,296 L1104,296" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M80,160 L210,162 L340,164 L860,172 L900,172 L1080,296 L1104,296" fill="none" stroke="rgba(7,22,29,.07)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
           <path class="ww-draw" d="M80,160 L210,162 L340,164 L860,172 L900,172 L1080,296 L1104,296" pathLength="1" fill="none" stroke="url(#gWater)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
           <path class="ww-flow" d="M80,160 L210,162 L340,164 L860,172 L900,172 L1080,296 L1104,296" pathLength="100" fill="none" stroke="#e9fbff" stroke-width="2" stroke-linecap="round"/>
 
           <!-- tailrace back to river -->
-          <path d="M1126,306 Q1140,308 1146,318" fill="none" stroke="#7ee0ea" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+          <path d="M1126,306 Q1140,308 1146,318" fill="none" stroke="#2f9fae" stroke-width="3" stroke-linecap="round" opacity=".7"/>
 
           <!-- water droplets travelling along the waterway -->
-          <g class="drops" fill="#ffffff" filter="url(#glow)">
+          <g class="drops" fill="#ffffff" stroke="#0071e3" stroke-width="2">
             <circle r="4"><animateMotion dur="6s" repeatCount="indefinite" begin="0s" keyPoints="0;0.78;1" keyTimes="0;0.85;1" calcMode="linear"><mpath href="#wwPath"/></animateMotion></circle>
             <circle r="4"><animateMotion dur="6s" repeatCount="indefinite" begin="2s" keyPoints="0;0.78;1" keyTimes="0;0.85;1" calcMode="linear"><mpath href="#wwPath"/></animateMotion></circle>
             <circle r="4"><animateMotion dur="6s" repeatCount="indefinite" begin="4s" keyPoints="0;0.78;1" keyTimes="0;0.85;1" calcMode="linear"><mpath href="#wwPath"/></animateMotion></circle>
           </g>
 
           <!-- gross head dimension -->
-          <g class="head-dim" stroke="#a1a1a6" fill="#a1a1a6">
+          <g class="head-dim" stroke="#6e6e73" fill="#6e6e73">
             <line x1="905" y1="172" x2="1180" y2="172" stroke-dasharray="4 5" stroke-width="1"/>
             <line x1="1170" y1="180" x2="1170" y2="288" stroke-width="1.5"/>
             <path d="M1170,174 l-5,9 h10 Z M1170,294 l-5,-9 h10 Z" stroke="none"/>
@@ -889,19 +890,19 @@
 
           <!-- powerhouse with spinning turbine -->
           <g>
-            <rect x="1086" y="300" width="40" height="30" rx="4" fill="#0b1c23" stroke="#e8eef0" stroke-width="1.5"/>
-            <path d="M1082,302 L1106,286 L1130,302 Z" fill="#0b1c23" stroke="#e8eef0" stroke-width="1.5" stroke-linejoin="round"/>
+            <rect x="1086" y="300" width="40" height="30" rx="4" fill="#ffffff" stroke="#1d1d1f" stroke-width="1.5"/>
+            <path d="M1082,302 L1106,286 L1130,302 Z" fill="#ffffff" stroke="#1d1d1f" stroke-width="1.5" stroke-linejoin="round"/>
             <g class="turbine">
-              <circle cx="1106" cy="315" r="9" fill="none" stroke="#7ee0ea" stroke-width="1.5"/>
-              <path d="M1106,306 V324 M1097,315 H1115 M1099.6,308.6 L1112.4,321.4 M1112.4,308.6 L1099.6,321.4" stroke="#7ee0ea" stroke-width="1.5"/>
+              <circle cx="1106" cy="315" r="9" fill="none" stroke="#0071e3" stroke-width="1.5"/>
+              <path d="M1106,306 V324 M1097,315 H1115 M1099.6,308.6 L1112.4,321.4 M1112.4,308.6 L1099.6,321.4" stroke="#0071e3" stroke-width="1.5"/>
             </g>
-            <path class="bolt" d="M1110,252 l-10,16 h8 l-4,14 l12,-18 h-8 l4,-12 Z" fill="#ffd60a" filter="url(#glow)"/>
+            <path class="bolt" d="M1110,252 l-10,16 h8 l-4,14 l12,-18 h-8 l4,-12 Z" fill="#ffb300" stroke="#c98500" stroke-width="1" filter="url(#glow)"/>
           </g>
 
           <!-- line to grid -->
-          <path d="M1126,322 L1200,322" fill="none" stroke="rgba(255,214,10,.25)" stroke-width="2"/>
-          <path class="grid-pulse" d="M1126,322 L1200,322" fill="none" stroke="#ffd60a" stroke-width="2.5" stroke-linecap="round"/>
-          <text x="1196" y="350" fill="#ffd60a" opacity=".75" font-size="11" font-weight="700" text-anchor="end">TO GRID</text>
+          <path d="M1126,322 L1200,322" fill="none" stroke="rgba(255,179,0,.3)" stroke-width="2"/>
+          <path class="grid-pulse" d="M1126,322 L1200,322" fill="none" stroke="#ffb300" stroke-width="2.5" stroke-linecap="round"/>
+          <text x="1196" y="350" fill="#b07800" opacity=".9" font-size="11" font-weight="700" text-anchor="end">TO GRID</text>
 
           <!-- component nodes -->
       <g class="node" data-step="0" style="--d:0.50s">
