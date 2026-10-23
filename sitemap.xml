@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://turfingconsults.com.np/</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image><image:loc>https://turfingconsults.com.np/assets/img/hero-survey-team-nepal-1600.jpg</image:loc></image:image>
+    <image:image><image:loc>https://turfingconsults.com.np/site-images/middle-midim/photo4.jpg</image:loc></image:image>
+    <image:image><image:loc>https://turfingconsults.com.np/site-images/lidin-khola/photo2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://turfingconsults.com.np/site-images/budhiganga/photo4.jpg</image:loc></image:image>
+    <image:image><image:loc>https://turfingconsults.com.np/assets/img/er-sujan-malbul-chairman.jpg</image:loc></image:image>
+  </url>
+</urlset>
